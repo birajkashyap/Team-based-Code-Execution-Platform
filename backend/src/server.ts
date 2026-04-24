@@ -19,7 +19,6 @@ io.on("connection", (socket: Socket) => {
     console.log(`${socket.id} joined ${room}`);
   });
 
-  // send message to room
   socket.on("send_message", (data: { room: string; message: string }) => {
     io.to(data.room).emit("receive_message", data.message);
   });
